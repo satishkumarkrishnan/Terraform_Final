@@ -6,12 +6,20 @@
 # though: using the remote backend, Terraform will execute remotely in Terraform
 # Cloud where your token is already securely stored in your workspace!
 
-variable "provider_token" {
-  type = string
-  sensitive = true
-  default = "FhdEQiTXtypcsw.atlasv1.QpIFzojUT827ZvWfT3Z1Jg6GYr6NOMXUpU5TyBl7aQ5wBcRn6vGcAhKezEaIOeRgnLM"
+#variable "provider_token" {
+#  type      = string
+#  sensitive = true
+#}
+
+#provider "fakewebservices" {
+#  token = var.provider_token
+#}
+
+variable "region" {
+  description = "AWS region"
+  default     = "ap-northeast-1"
 }
 
-provider "fakewebservices" {
-  token = var.provider_token
+provider "aws" {
+  region = var.region
 }
