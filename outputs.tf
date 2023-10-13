@@ -1,7 +1,7 @@
 /*
 output "vpc_id" {
-  value = module.vpc.vpc.id
-}
+  value = module.vpc.id
+  }
 
 
 output "vpc_fe_subnet" {

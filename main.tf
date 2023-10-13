@@ -10,12 +10,10 @@ terraform {
 }
 module "vpc" {
   source  = "app.terraform.io/CG_Tokyo/vpc/aws"
-#    source  = "./terraform-aws-vpc/vpc"
-  version = "0.0.3"
+  version = "0.0.7"
 }
 
 module "asg" {
-#  source  = "./terraform-aws-asg/asg"
   source  = "app.terraform.io/CG_Tokyo/asg/aws"
   version = "0.0.2"
   depends_on = [module.vpc]
