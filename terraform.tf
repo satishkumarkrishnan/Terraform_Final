@@ -1,5 +1,4 @@
 terraform {
-
   cloud {
     organization = "CG_Tokyo"
 
