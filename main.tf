@@ -9,12 +9,12 @@ terraform {
   }
 }
 module "vpc" {
-  source  = "app.terraform.io/CG_Tokyo/vpc/aws"
-  version = "0.0.7"
+  source  = "git@github.com:satishkumarkrishnan/terraform-aws-vpc.git"
+#  version = "0.0.7"
 }
 
 module "asg" {
-  source  = "app.terraform.io/CG_Tokyo/asg/aws"
+  source  = "git@github.com:satishkumarkrishnan/terraform-aws-asg.git"
   version = "0.0.2"
   depends_on = [module.vpc]
 }
