@@ -13,21 +13,26 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 5.19.0"
+      version = "~> 4.0.0"
     }
   }
 }
 
-provider "aws" {
-  region = var.region
-}
+#module "vpc" {
+#  source  = "git@github.com:satishkumarkrishnan/terraform-aws-vpc.git?ref=main"
+#}
 
 module "vpc" {
-  source  = "git@github.com:satishkumarkrishnan/terraform-aws-vpc.git?ref=main"
+  source  = "app.terraform.io/Satish_Terraform/vpc/aws"
+  version = "0.0.1"
 }
 
+#module "asg" {
+# source  = "git@github.com:satishkumarkrishnan/terraform-aws-asg.git?ref=main"
+# depends_on = [module.vpc]
+#}
 
 module "asg" {
- source  = "git@github.com:satishkumarkrishnan/terraform-aws-asg.git?ref=main"
- depends_on = [module.vpc]
+  source  = "app.terraform.io/Satish_Terraform/asg/aws"
+  version = "0.0.1"
 }

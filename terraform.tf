@@ -1,9 +1,9 @@
 terraform {
   cloud {
-    organization = "CG_Tokyo"
+    organization = "Satish_Terraform"
 
     workspaces {
-      name = "Tokyo-cli"
+      name = "Terraform_Final"
     }
   }
 }
