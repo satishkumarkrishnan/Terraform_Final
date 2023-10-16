@@ -18,21 +18,21 @@ terraform {
   }
 }
 
-#module "vpc" {
-#  source  = "git@github.com:satishkumarkrishnan/terraform-aws-vpc.git?ref=main"
-#}
-
 module "vpc" {
-  source  = "app.terraform.io/Satish_Terraform/vpc/aws"
-  version = "0.0.1"
+  source  = "git@github.com:satishkumarkrishnan/terraform-aws-vpc.git?ref=main"
 }
 
-#module "asg" {
-# source  = "git@github.com:satishkumarkrishnan/terraform-aws-asg.git?ref=main"
-# depends_on = [module.vpc]
+#module "vpc" {
+#  source  = "app.terraform.io/Satish_Terraform/vpc/aws"
+#  version = "0.0.1"
 #}
 
 module "asg" {
-  source  = "app.terraform.io/Satish_Terraform/asg/aws"
-  version = "0.0.1"
+ source  = "git@github.com:satishkumarkrishnan/terraform-aws-asg.git?ref=main"
+ depends_on = [module.vpc]
 }
+
+#module "asg" {
+#  source  = "app.terraform.io/Satish_Terraform/asg/aws"
+#  version = "0.0.1"
+#}
