@@ -1,8 +1,9 @@
 # S3 bucket to store App
-resource "aws_s3_bucket" "terraform_state" { #  bucket = "mumbai-tf-state"
+resource "aws_s3_bucket" "terraform_state" { 
+  bucket = "mumbai-tf-state"
   # Prevent accidental deletion of this S3 bucket
   lifecycle {
-    prevent_destroy = true
+    prevent_destroy = false
   }
 }
 # Enable versioning so you can see the full revision history of your
