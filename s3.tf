@@ -1,5 +1,5 @@
 # S3 bucket to store App
-/*resource "aws_s3_bucket" "terraform_state" { #  bucket = "tokyo-tf-state"
+resource "aws_s3_bucket" "terraform_state" { #  bucket = "mumbai-tf-state"
   # Prevent accidental deletion of this S3 bucket
   lifecycle {
     prevent_destroy = true
@@ -30,10 +30,10 @@ resource "aws_s3_bucket_public_access_block" "public_access" {
   block_public_policy     = true
   ignore_public_acls      = true
   restrict_public_buckets = true
-}*/
+}
 # Upload TF state file to S3 bucket
 resource "aws_s3_object" "object" {
-  bucket = "tokyo-tf-state"
+  bucket = "mumbai-tf-state"
   key    = "terraform.tfstate" # Object name
   source = "./README.md"
   lifecycle {

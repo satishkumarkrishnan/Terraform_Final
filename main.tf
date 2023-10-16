@@ -34,5 +34,5 @@ module "asg" {
 
 #module "asg" {
 #  source  = "app.terraform.io/Satish_Terraform/asg/aws"
-#  version = "0.0.5"
+#  version = "0.0.6"
 #}
