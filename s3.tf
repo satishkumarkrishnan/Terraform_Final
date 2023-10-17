@@ -1,13 +1,17 @@
+
 # S3 bucket to store App
-resource "aws_s3_bucket" "terraform_state" { 
-  bucket = "mumbai-tf-state"
+resource "aws_s3_bucket" "terraform_state" {
+  bucket = "tokyo-tf-state-poc"
   # Prevent accidental deletion of this S3 bucket
   lifecycle {
     prevent_destroy = false
   }
 }
+
+
 # Enable versioning so you can see the full revision history of your
 # state files
+
 resource "aws_s3_bucket_versioning" "enabled" {
   bucket = aws_s3_bucket.terraform_state.id
   versioning_configuration {
@@ -34,10 +38,10 @@ resource "aws_s3_bucket_public_access_block" "public_access" {
 }
 # Upload TF state file to S3 bucket
 resource "aws_s3_object" "object" {
-  bucket = "mumbai-tf-state"
+  bucket = "tokyo-tf-state-poc"
   key    = "terraform.tfstate" # Object name
   source = "./README.md"
   lifecycle {
-    prevent_destroy = true
+    prevent_destroy = false
   }
 }

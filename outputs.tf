@@ -1,6 +1,6 @@
-/*
+
 output "vpc_id" {
-  value = module.vpc.id
+  value = module.vpc.vpc_id
   }
 
 
@@ -50,4 +50,4 @@ output "asg_alb_arn" {
 
 output "asg_alb_dns_name" {
   value = module.asg.asg_alb_dns_name
-}*/
+}
