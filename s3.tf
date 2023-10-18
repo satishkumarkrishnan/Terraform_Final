@@ -1,4 +1,3 @@
-
 # S3 bucket to store App
 resource "aws_s3_bucket" "terraform_state" {
   bucket = "tokyo-tf-state-poc"
@@ -8,10 +7,8 @@ resource "aws_s3_bucket" "terraform_state" {
   }
 }
 
-
 # Enable versioning so you can see the full revision history of your
 # state files
-
 resource "aws_s3_bucket_versioning" "enabled" {
   bucket = aws_s3_bucket.terraform_state.id
   versioning_configuration {
