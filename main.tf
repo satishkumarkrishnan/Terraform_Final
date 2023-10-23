@@ -17,9 +17,9 @@ terraform {
   }
 }
 
-#module "vpc" {
-#  source  = "git@github.com:satishkumarkrishnan/terraform-aws-vpc.git?ref=main"
-#}
+module "vpc" {
+  source  = "git@github.com:satishkumarkrishnan/terraform-aws-vpc.git?ref=main"
+}
 
 #module "asg" {
 # source  = "git@github.com:satishkumarkrishnan/terraform-aws-asg.git?ref=main"
@@ -34,9 +34,9 @@ terraform {
 # source  = "git@github.com:satishkumarkrishnan/Terraform_ami.git?ref=main"
 #}
 
-module "rds_test" {
- source  = "git@github.com:satishkumarkrishnan/Terraform-rds.git?ref=main" 
-}
+#module "rds_test" {
+# source  = "git@github.com:satishkumarkrishnan/Terraform-rds.git?ref=main" 
+#}
 
 /*module "vpc" {
   source  = "app.terraform.io/Satish_Terraform/vpc/aws"
