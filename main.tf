@@ -6,7 +6,6 @@
 # though: using the remote backend, Terraform will execute remotely in Terraform
 # Cloud where your token is already securely stored in your workspace!
 
-
 terraform {
   required_version = ">= 1.0.0, < 2.0.0"
 
@@ -29,17 +28,17 @@ module "asg" {
 
 module "iam" {
  source  = "git@github.com:satishkumarkrishnan/Terraform_IAM.git?ref=main"
- depends_on = [module.vpc]
+ #depends_on = [module.vpc]
 }
 
 module "ami" {
  source  = "git@github.com:satishkumarkrishnan/Terraform_ami.git?ref=main"
- depends_on = [module.vpc]
+ #depends_on = [module.vpc]
 }
 
 module "rds" {
  source  = "git@github.com:satishkumarkrishnan/Terraform-rds.git?ref=main"
- depends_on = [module.vpc]
+ #depends_on = [module.vpc]
 }
 
 /*module "vpc" {
