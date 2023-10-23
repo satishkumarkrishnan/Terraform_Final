@@ -13,21 +13,36 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 4.0.0"
+      version = "~> 5.0.0"
     }
   }
 }
 
-#module "vpc" {
-#  source  = "git@github.com:satishkumarkrishnan/terraform-aws-vpc.git?ref=main"
-#}
-
-#module "asg" {
-# source  = "git@github.com:satishkumarkrishnan/terraform-aws-asg.git?ref=main"
-# depends_on = [module.vpc]
-#}
-
 module "vpc" {
+  source  = "git@github.com:satishkumarkrishnan/terraform-aws-vpc.git?ref=main"
+}
+
+module "asg" {
+ source  = "git@github.com:satishkumarkrishnan/terraform-aws-asg.git?ref=main"
+ depends_on = [module.vpc]
+}
+
+module "iam" {
+ source  = "git@github.com:satishkumarkrishnan/Terraform_IAM.git?ref=main"
+ depends_on = [module.vpc]
+}
+
+module "ami" {
+ source  = "git@github.com:satishkumarkrishnan/Terraform_ami.git?ref=main"
+ depends_on = [module.vpc]
+}
+
+module "rds" {
+ source  = "git@github.com:satishkumarkrishnan/Terraform-rds.git?ref=main"
+ depends_on = [module.vpc]
+}
+
+/*module "vpc" {
   source  = "app.terraform.io/Satish_Terraform/vpc/aws"
   version = "0.0.3"
 }
@@ -36,4 +51,4 @@ module "asg" {
   source  = "app.terraform.io/Satish_Terraform/asg/aws"
   version = "0.0.7"
   depends_on = [module.vpc]
-}
+}*/
