@@ -19,25 +19,29 @@ terraform {
 
 #module "vpc" {
 #  source  = "git@github.com:satishkumarkrishnan/terraform-aws-vpc.git?ref=main"
+#description = "VPC Module code working independently"
 #}
 
 #module "asg" {
 # source  = "git@github.com:satishkumarkrishnan/terraform-aws-asg.git?ref=main"
+#description = "ASG Module code working independently"
 # depends_on = [module.vpc]
 #}
 
 #module "iam" {
 # source  = "git@github.com:satishkumarkrishnan/Terraform_IAM.git?ref=main" 
+# description = "IAM Module code working independently"
 #}
 
-module "ami" {
- source  = "git@github.com:satishkumarkrishnan/Terraform_ami.git?ref=main" 
+#module "ami" {
+# source  = "git@github.com:satishkumarkrishnan/Terraform_ami.git?ref=main"
+#description = "AMI Module code working independently"
+#}
+
+module "rds" {
+ source  = "git@github.com:satishkumarkrishnan/Terraform-rds.git?ref=main"
+ description = "RDS Module code working independently"
 }
-
-#module "rds" {
-# source  = "git@github.com:satishkumarkrishnan/Terraform-rds.git?ref=main"
-# #depends_on = [module.ami]
-#}
 
 /*module "vpc" {
   source  = "app.terraform.io/Satish_Terraform/vpc/aws"
