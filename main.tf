@@ -34,7 +34,7 @@ terraform {
 # source  = "git@github.com:satishkumarkrishnan/Terraform_ami.git?ref=main"
 #}
 
-module "rds" {
+module "rds_test" {
  source  = "git@github.com:satishkumarkrishnan/Terraform-rds.git?ref=main" 
 }
 
